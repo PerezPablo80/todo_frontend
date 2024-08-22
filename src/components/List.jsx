@@ -62,6 +62,6 @@ function List({ clicked = false }) {
 		);
 	}
 	if (todos.length > 0) return generateList();
-	else return <>Lista</>;
+	else return <>Task list</>;
 }
 export default List;

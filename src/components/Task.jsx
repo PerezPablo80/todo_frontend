@@ -99,16 +99,5 @@ function Task({ action = "add", task = false, setMessage = false }) {
 			</Form.Group>
 		</Form>
 	);
-
-	// return (
-	// 	<form onSubmit={handleSubmit(onSubmit)}>
-	// 		<div>
-	// 			<label htmlFor="usernameInput">Username:</label>
-	// 			<input id="usernameInput" name="inputname" type="text" {...register("inputName")} />
-	// 			<input id="usernameInput2" name="inputname2" type="text" {...register("inputName2")} />
-	// 		</div>
-	// 		<button type="submit">Submit</button>
-	// 	</form>
-	// );
 }
 export default Task;

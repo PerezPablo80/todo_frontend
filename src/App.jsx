@@ -20,33 +20,45 @@ function App() {
 		setElement(selected);
 		setMessage(false);
 	};
-
+	function able(boo, id) {
+		let tr = document.getElementById(id);
+		tr.disabled = boo;
+		console.log('id":' + id);
+	}
 	return (
-		<div className="container-fluid">
-			<h2>{message}</h2>
-			<div className="row">
-				<div className="col">
-					<List clicked={handleClick} />
-				</div>
-				<div className="col">&nbsp;</div>
-				<div className="col">
-					<h2>Actions</h2>
-					<hr />
-					<Button className="btn btn-success" onClick={() => setElement(false)}>
-						Add new Task
-					</Button>
-					<br />
-					<Button
-						className="btn btn-danger"
-						onClick={() => {
-							setAction("delete");
-						}}
-					>
-						Delete selected Task
-					</Button>
+		<div>
+			<div className="container-fluid">
+				<h2>{message}</h2>
+				<div className="row">
+					<div className="col-lg-6">
+						<List clicked={handleClick} />
+					</div>
+					<div className="col-lg-2 grey">
+						<h2>Actions</h2>
+						<hr />
+						<Button className="btn btn-success" id="btnAdd" onClick={() => setElement(false)}>
+							Add new Task
+						</Button>
+						<br />
+						<Button
+							id="btnDelete"
+							className="btn btn-danger"
+							onClick={() => {
+								able(false, "btnDelete");
+								able(false, "btnAdd");
+								setAction("delete");
+								able(true, "btnDelete");
+								able(true, "btnAdd");
+							}}
+						>
+							Delete selected Task
+						</Button>
+					</div>
+					<div className="col-lg-4">
+						<Task action={action} task={element} setMessage={setInformation} />
+					</div>
 				</div>
 			</div>
-			<Task action={action} task={element} setMessage={setInformation} />
 		</div>
 	);
 }

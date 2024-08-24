@@ -50,7 +50,13 @@ function List({ clicked = false }) {
 								<td>{t.completed ? "Yes" : "No"}</td>
 
 								<td>
-									<button className="btn btn-success" onClick={() => clicked(t)}>
+									<button
+										id={t.id}
+										className="btn btn-success"
+										onClick={() => {
+											clicked(t);
+										}}
+									>
 										Select
 									</button>
 								</td>
